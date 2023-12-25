@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Test</title>
+
+    <!--Custom CSS-->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap');
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: rgba(144, 238, 144, 0.464);
+        }
+
+        .container {
+            display: flex;
+            max-width: 1180px;
+            height: 100vh;
+            margin-inline: auto;
+            justify-content: center;
+        }
+
+
+        .card {
+            background-color: white;
+            padding: 30px;
+            height: fit-content;
+            margin-block-start: 8rem;
+            text-align: center;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.12);
+            border-radius: 12px;
+        }
+
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 500px;
+        }
+
+        .input_label {
+            display: flex;
+            flex-direction: column;
+            margin-block-end: 12px;
+            text-align: start;
+            width: 100%;
+        }
+
+        input {
+            border: none;
+            background-color: rgba(128, 128, 128, 0.114);
+            padding: 12px;
+            border-radius: 10px;
+            font-family: "Poppins",sans-serif;
+        }
+
+        textarea {
+            border: none;
+            background-color: rgba(128, 128, 128, 0.114);
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        .btn {
+            margin-block-start: 14px;
+            background-color: rgba(88, 175, 17, 0.928);
+            color: white;
+            padding: 14px 40px;
+            font-weight: 600;
+        }
+        
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+
+        <div class="card">
+            <h1>Form Test</h1>
+    {% if success %}
+    <p>Data saved successfully!</p>
+    {% endif %}
+
+        <form method="post" class="inputs">
+        {% csrf_token %}
+
+        <div class = "input_label">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="Enter your name">
+        </div>
+        <div class = "input_label">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" placeholder="Enter your email address">
+        </div>
+
+        <div class = "input_label">
+            <label for="phone_number">Phone number:</label>
+            <input type="text" name="phone_number" id="phone_number" placeholder="Enter phone number">
+        </div>
+        <div class = "input_label">
+            <label for="address">Address:</label>
+            <textarea name="address" id="address" placeholder="Enter address"></textarea>
+        </div>
+        <div class = "input_label">
+            <label for="birth_date">Birth date:</label>
+            <input type="date" name="birth_date" id="birth_date">
+        </div>
+
+        <input type="submit" value="Submit" class="btn">
+    </form>
+
+        </div>
+        
+    </div>
+    
+</body>
+</html>
